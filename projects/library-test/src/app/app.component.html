@@ -1,0 +1,31 @@
+<h3>Template Driven (ngModel) Example</h3>
+
+<input currencyMask [(ngModel)]="ngModelExample" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+<span> --> {{ ngModelExample }}</span>
+
+<h3>Reactive Forms (formControl) Example</h3>
+
+<input currencyMask [formControl]="formControlExample" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" />
+<span> --> {{ formControlExample.value }}</span>
+
+<h3>Reactive Forms (formArray) Example</h3>
+
+<form [formGroup]="formGroupExample">
+    <div formArrayName="formArrayExample">
+        <div *ngFor="let control of formArrayExample.controls; let i = index">
+            <input currencyMask [formControlName]="i" />
+            <span> --> {{ control.value }}</span>
+            <br />
+            <br />
+        </div>
+    </div>
+</form>
+
+<h3>Angular Material Example</h3>
+
+<mat-form-field appearance="outline">
+    <mat-label>Value</mat-label>
+    <input currencyMask matInput [(ngModel)]="angularMaterialExample" [options]="{ prefix: '$ ', thousands: '.', decimal: ',' }" />
+</mat-form-field>
+
+<span> --> {{ angularMaterialExample }}</span>
